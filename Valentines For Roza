@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine, Roza?</title>
+    <style>
+        /* CSS goes here */
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        #yesButton {
+            background-color: green;
+            color: white;
+        }
+
+        #noButton {
+            background-color: red;
+            color: white;
+        }
+
+        #bunnySticker {
+            width: 150px;
+            margin-top: 20px;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 24px;
+            display: none;
+        }
+
+        #puppyVideo {
+            display: none;
+            margin-top: 20px;
+            width: 300px;
+        }
+
+        #helpMessage {
+            margin-top: 10px;
+            font-size: 14px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine, Roza?</h1>
+        <img id="bunnySticker" src="https://i.imgur.com/7Jf5GzL.png" alt="Cute Bunny Sticker">
+        <div id="helpMessage">HELP!!! Roza is cuter than me!!!</div>
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+        <div id="message"></div>
+        <video id="puppyVideo" controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        // JavaScript goes here
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const message = document.getElementById('message');
+        const puppyVideo = document.getElementById('puppyVideo');
+
+        let scale = 1;
+
+        noButton.addEventListener('click', () => {
+            scale += 0.5;
+            yesButton.style.transform = `scale(${scale})`;
+            if (scale > 5) {
+                yesButton.style.width = '100vw';
+                yesButton.style.height = '100vh';
+                yesButton.style.fontSize = '50px';
+                yesButton.style.position = 'absolute';
+                yesButton.style.top = '0';
+                yesButton.style.left = '0';
+            }
+        });
+
+        yesButton.addEventListener('click', () => {
+            message.textContent = 'Yehhhhh!!! Love You Roza💗 Mauhh Mauhh';
+            message.style.display = 'block';
+            puppyVideo.style.display = 'block';
+            noButton.style.display = 'none';
+            yesButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
